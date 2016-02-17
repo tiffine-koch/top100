@@ -1,11 +1,12 @@
 'use strict';
 
 var express = require('express');
-var topMovies = require('./routes/api/top-movies');
+// var topMovies = require('./routes/api/top-movies');
+var api = require('./routes/api');
 
 var app = express();
 
-app.use('/api', topMovies);
+app.use('/api', api);
 
 app.listen(process.env.PORT || 3000);
 
