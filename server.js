@@ -1,16 +1,17 @@
 'use strict';
 
 var express = require('express');
-var topMovies = require('./lib/scrapers/tpb/top-movies');
+var topMovies = require('./routes/api/top-movies');
 
 var app = express();
 
-app.get('/', (req, res) => {
-  res.json({hello: 'world'});
-});
+app.use('/api', topMovies);
 
 app.listen(process.env.PORT || 3000);
 
-// topMovies(movies => {
-//   console.log('movies', movies);
-// });
+/*
+*API SPEC DISCUSSION
+*
+* GET mywebsite.com/api/top-movies //get a list of top movies
+* POST mywebsite.com/api/top-movies //get a list of top movies
+*/
